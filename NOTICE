@@ -1,0 +1,9 @@
+ans-kit is an unofficial, independent developer toolkit.
+
+It is not affiliated with, endorsed by, or maintained by the Linux Foundation,
+Cisco, Salesforce, Cloudflare, or the Agent Name Service project.
+
+Names, DNS record shapes, and terminology follow publicly described ANS
+documents so local experiments can line up with that design. This repository
+does not implement the full specification, and it does not operate a public
+registration authority.

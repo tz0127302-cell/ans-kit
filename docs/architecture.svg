@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="title desc">
+  <title id="title">ans-kit architecture</title>
+  <desc id="desc">A developer or coding agent calls the ans CLI or TypeScript library. Those sign an ANSName with Ed25519 and store it in a local registry with a hash chain. The registry projects DNS records and can serve them on loopback HTTP. A remote registry is drawn as a dashed box because it is off by default.</desc>
+  <style>
+    .bg { fill: #f3efe4; }
+    .card { fill: #fffdf8; stroke: #1c1915; stroke-width: 1.5; }
+    .dash { fill: #fffdf8; stroke: #8a8175; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .label { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; fill: #1c1915; }
+    .title { font-family: Georgia, Palatino, serif; font-size: 22px; fill: #1c1915; }
+    .small { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; fill: #5e584e; }
+  </style>
+  <rect class="bg" width="960" height="340"/>
+  <text class="title" x="32" y="42">ans-kit, local and offline</text>
+  <text class="small" x="32" y="64">Unofficial toolkit. The remote box stays disconnected unless you opt in.</text>
+
+  <rect class="card" x="32" y="92" width="170" height="78" rx="2"/>
+  <text class="label" x="48" y="124">Developer</text>
+  <text class="label" x="48" y="146">or coding agent</text>
+
+  <rect class="card" x="250" y="92" width="200" height="78" rx="2"/>
+  <text class="label" x="266" y="124">ans CLI</text>
+  <text class="label" x="266" y="146">TypeScript library</text>
+
+  <rect class="card" x="498" y="92" width="200" height="78" rx="2"/>
+  <text class="label" x="514" y="124">Ed25519 signature</text>
+  <text class="label" x="514" y="146">ANSName parser</text>
+
+  <rect class="card" x="250" y="214" width="200" height="86" rx="2"/>
+  <text class="label" x="266" y="246">Local registry</text>
+  <text class="label" x="266" y="268">hash chain</text>
+
+  <rect class="card" x="498" y="214" width="200" height="86" rx="2"/>
+  <text class="label" x="514" y="246">DNS projection</text>
+  <text class="small" x="514" y="268">_ans TXT, badge, SVCB hint</text>
+
+  <rect class="card" x="746" y="92" width="182" height="78" rx="2"/>
+  <text class="label" x="762" y="124">Loopback HTTP</text>
+  <text class="label" x="762" y="146">127.0.0.1:4080</text>
+
+  <rect class="dash" x="746" y="214" width="182" height="86" rx="2"/>
+  <text class="label" x="762" y="246">Remote registry</text>
+  <text class="small" x="762" y="268">off by default</text>
+
+  <path d="M202 131 H250" stroke="#1c1915" stroke-width="1.5" fill="none"/>
+  <path d="M450 131 H498" stroke="#1c1915" stroke-width="1.5" fill="none"/>
+  <path d="M598 170 V214" stroke="#1c1915" stroke-width="1.5" fill="none"/>
+  <path d="M450 257 H498" stroke="#1c1915" stroke-width="1.5" fill="none"/>
+  <path d="M698 131 H746" stroke="#1c1915" stroke-width="1.5" fill="none"/>
+  <path d="M698 257 H746" stroke="#8a8175" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+</svg>

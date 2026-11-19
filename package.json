@@ -1,0 +1,70 @@
+{
+  "name": "ans-kit",
+  "version": "0.1.0",
+  "description": "Unofficial local-first toolkit for the Agent Name Service: ANSName registration, Ed25519 auth, and an offline registry. Not affiliated with the Linux Foundation.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tz0127302-cell/ans-kit.git"
+  },
+  "homepage": "https://github.com/tz0127302-cell/ans-kit#readme",
+  "bugs": {
+    "url": "https://github.com/tz0127302-cell/ans-kit/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "ans": "./dist/cli.js",
+    "ans-kit": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "schema",
+    "docs/architecture.svg",
+    "docs/protocol.md",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ans",
+    "agent-name-service",
+    "ai-agents",
+    "dns",
+    "ed25519",
+    "cli",
+    "registry"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "presmoke": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.14",
+    "@types/node": "22.19.7",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
+}
