@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/ans-kit/ans-kit-registry-v0.schema.json",
+  "title": "ans-kit local registry v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "createdAt", "agents", "log"],
+  "properties": {
+    "format": { "const": "ans-kit-registry-v0" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "agents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/agent" }
+    },
+    "log": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/logEntry" }
+    }
+  },
+  "$defs": {
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document", "signature", "status", "logIndex"],
+      "properties": {
+        "document": { "$ref": "#/$defs/document" },
+        "signature": { "type": "string" },
+        "status": { "const": "ACTIVE" },
+        "logIndex": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alg",
+        "ansName",
+        "agentHost",
+        "version",
+        "agentDisplayName",
+        "endpoint",
+        "publicKey",
+        "registeredAt"
+      ],
+      "properties": {
+        "alg": { "const": "Ed25519" },
+        "ansName": { "type": "string" },
+        "agentHost": { "type": "string" },
+        "version": { "type": "string" },
+        "agentDisplayName": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "agentDescription": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "endpoint": { "$ref": "#/$defs/endpoint" },
+        "capabilities": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string" }
+        },
+        "publicKey": { "$ref": "#/$defs/jwk" },
+        "registeredAt": { "type": "string" }
+      }
+    },
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocol", "url", "mode"],
+      "properties": {
+        "protocol": { "type": "string" },
+        "url": { "type": "string" },
+        "mode": { "enum": ["direct", "fetch"] }
+      }
+    },
+    "jwk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kty", "crv", "x"],
+      "properties": {
+        "kty": { "const": "OKP" },
+        "crv": { "const": "Ed25519" },
+        "x": { "type": "string" }
+      }
+    },
+    "logEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "type", "ansName", "payloadHash", "previousHash", "hash"],
+      "properties": {
+        "index": { "type": "integer", "minimum": 0 },
+        "type": { "const": "AGENT_REGISTERED" },
+        "ansName": { "type": "string" },
+        "payloadHash": { "type": "string" },
+        "previousHash": { "type": "string" },
+        "hash": { "type": "string" }
+      }
+    }
+  }
+}
